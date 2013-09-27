@@ -31,8 +31,8 @@ class stock_product_history(osv.osv):
     _name = 'stock.product.history'
     _description = 'Historic record of stock'
     _columns = {
-        'product_id' : fields.many2one('product.product', 'Products', ondelete='cascade', select=1, required=True),
-        'location_id' : fields.many2one('stock.location', 'Location', ondelete='cascade', select=1, required=True),
+        'product_id' : fields.many2one('product.product', 'Products', ondelete='cascade', select=True, required=True),
+        'location_id' : fields.many2one('stock.location', 'Location', ondelete='cascade', select=True, required=True),
         'date_stock': fields.datetime('Stock Date/Time'),
 	'quantity': fields.float('Quantity')
     }

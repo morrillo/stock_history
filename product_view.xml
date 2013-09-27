@@ -11,7 +11,7 @@
                     <field name="product_id"/>
                     <field name="location_id"/>
                     <field name="date_stock"/>
-                    <field name="quantity"/>
+                    <field name="quantity" sum="Total units"/>
                 </tree>
             </field>
         </record>
@@ -35,7 +35,7 @@
 	        <field name="view_id" ref="stock_product_history_tree_view"/>
 	    </record>
 
-	    <menuitem name="Stock Product History" parent="base.menu_config" id="menu_stock_product_history" action="action_stock_product_history" />
+	    <menuitem name="Stock Product History" parent="stock.menu_stock_inventory_control" id="menu_stock_product_history" action="action_stock_product_history" />
 
 
 
