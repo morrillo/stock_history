@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="stock_product_history_tree_view" model="ir.ui.view">
+            <field name="name">stock.product.history.tree</field>
+            <field name="model">stock.product.history</field>
+            <field eval="7" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Product Stock History">
+                    <field name="product_id"/>
+                    <field name="location_id"/>
+                    <field name="date_stock"/>
+                    <field name="quantity"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="stock_product_history_search_view" model="ir.ui.view">
+            <field name="name">stock.product.history.search</field>
+            <field name="model">stock.product.history</field>
+            <field name="arch" type="xml">
+                <search string="Product Stock History">
+                   <field name="product_id" string="Product" filter_domain="['|',('name','ilike',self),('default_code','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+
+	    <record model="ir.actions.act_window" id="action_stock_product_history">
+        	<field name="name">Stock Product History</field>
+	        <field name="res_model">stock.product.history</field>
+        	<field name="view_type">tree</field>
+	        <field name="view_mode">tree</field>
+	        <field name="search_view_id" ref="stock_product_history_search_view"/>
+	        <field name="view_id" ref="stock_product_history_tree_view"/>
+	    </record>
+
+	    <menuitem name="Stock Product History" parent="base.menu_config" id="menu_stock_product_history" action="action_stock_product_history" />
+
+
+
+
+    </data>
+</openerp>
